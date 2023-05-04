@@ -1,60 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:to_do_list/bloc/tasks_cubit.dart';
 import 'package:to_do_list/screens/to_do_list_splash_screen.dart';
+import 'package:to_do_list/theme_model.dart';
 
 class AppRoot extends StatelessWidget {
+  const AppRoot({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var themeNotifier;
     return MultiBlocProvider(
+
       providers: [
-        BlocProvider(
-          create: (context) => TasksCubit(),
+        BlocProvider( create: (context) => TasksCubit(),
           child: Container(),
-        )
+        ),
       ],
-      child: DarkLightTheme(),
-    );
-  }
-}
+      child: ChangeNotifierProvider(
 
-class DarkLightTheme extends StatefulWidget {
+        create: (_) => ThemeModel(),
+        child: Consumer<ThemeModel>(
+          builder: ((context, ThemeModel themeNotifier, child) {
+return MaterialApp(
+  theme: themeNotifier.isDark ? ThemeData.dark() : ThemeData.light(),
+  debugShowCheckedModeBanner: false,
+  home: ToDoListSplashScreen(),
+);
+          }),
+            //builder:(context, ThemeModel themeNotifier, child),
 
-  const DarkLightTheme({
-    Key? key,
-  }) : super(key: key);
-  @override
-  State<DarkLightTheme> createState() => _DarkLightThemeState();
-}
-
-
-
-class _DarkLightThemeState extends State<DarkLightTheme> {
-  var _ligth=true;
-  static ThemeData _lightTheme = ThemeData(
-      scaffoldBackgroundColor: Colors.white,
-      colorScheme: ColorScheme.light(),
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color:Colors.lightBlue ),
-
-      )
-  );
-   static ThemeData _darkTheme = ThemeData(
-      scaffoldBackgroundColor: Colors.black,
-       buttonTheme: ButtonThemeData(buttonColor: Colors.white),
-       appBarTheme: AppBarTheme(
-        backgroundColor: Colors.black,
-     )
-  );
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // theme: _ligth ? _DarkLightThemeState._lightTheme :_DarkLightThemeState._darkTheme,
-     //  darkTheme: _DarkLightThemeState._darkTheme,
-      home: ToDoListSplashScreen(
       ),
-    );
+    ));
   }
 }
+
+
+
+
+
+
+
+
+
+

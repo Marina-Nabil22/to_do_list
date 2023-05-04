@@ -22,11 +22,11 @@ mainAxisAlignment: MainAxisAlignment.start,
 
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Title:"+title,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500,)),
-
-          Text("Date:"+date,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500,)),
-
-          Text("Description:"+description,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500)),
+          // Text("Title:"+title,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500,)),
+          //
+          // Text("Date:"+date,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500,)),
+          //
+          // Text("Description:"+description,style: TextStyle(color: Colors.lightBlue,fontSize: 22,fontWeight:FontWeight.w500)),
 
         ],
 
