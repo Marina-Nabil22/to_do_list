@@ -23,8 +23,6 @@ class _TasksScreenState extends State<TasksScreen> {
   List<Task>taskslist = [
     Task(title: 'hh', date: "hh", description: 'hhh')
   ];
-    //var TasksCubit = TasksCubit.get(context);
-
     @override
     Widget build(BuildContext context) {
       return BlocConsumer<TasksCubit, TasksState>(
@@ -70,7 +68,6 @@ class _TasksScreenState extends State<TasksScreen> {
                   ListView.builder(
                      itemCount: TasksCubit.get(context).taskslist.length,
                       itemBuilder: (context, index) {
-                       // var task = taskslist[index];
 
                         return ListTile(
 
@@ -101,21 +98,6 @@ class _TasksScreenState extends State<TasksScreen> {
                               ),
                             ),
                           )
-                          // Column(
-                          //
-                          //   children: [
-                          //   //   Task(title: SharedPreferencesHelper.getData(key: 'Title'),
-                          //   //     date: SharedPreferencesHelper.getData(key: 'Date'),
-                          //   //     description:SharedPreferencesHelper.getData(key: 'Description')
-                          //   //
-                          //   // ),
-                          //
-                          //
-                          //
-                          //
-                          //
-                          //   ],
-                          // ),
                         );
                       }),
                 ),

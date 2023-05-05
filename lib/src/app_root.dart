@@ -29,8 +29,6 @@ return MaterialApp(
   home: ToDoListSplashScreen(),
 );
           }),
-            //builder:(context, ThemeModel themeNotifier, child),
-
       ),
     ));
   }
